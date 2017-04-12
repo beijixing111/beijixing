@@ -80,7 +80,16 @@
 		$(function(){
 			var nav_height = $(".ui-nav").height();
 			$(".content").height(nav_height);
-			
+			$(".navlist li a").on("click",function(){
+				var href = $(this).attr("href");
+				if(href){
+					$(".content").find("iframe").attr("src",href);
+				}else{
+					console.log(0);
+				}
+				$(".content").find("iframe").attr("src",href);
+				return false;
+			})
 		});
 	</script>
 </body>
