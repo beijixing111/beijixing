@@ -82,7 +82,7 @@
 			$(".content").height(nav_height);
 			$(".navlist li a").on("click",function(){
 				var href = $(this).attr("href");
-				if(href){
+				if(href && href != ''){
 					$(".content").find("iframe").attr("src",href);
 				}else{
 					console.log(0);
