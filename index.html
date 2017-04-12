@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的博客</title>
+	<style>
+		*{padding: 0;margin:0;}
+		html,body{font-size: 14px;color: #333;background: #fafafa;overflow: hidden;}
+		ul,li,ol,li{list-style: none;}
+		a{text-decoration: none;cursor: pointer;color: #333;}
+		.topnav{width: 100%;height: 100px;box-shadow: 0px 2px 2px #d2d2d2;
+			border-bottom: 1px solid rgba(0,0,0,.2);}
+		.ui-nav{
+			float: left;
+			width: 300px;
+			height: 100%;
+			background: rgba(210, 195, 195, 0.91);
+			box-shadow: 2px 0px 2px #afafaf;
+			position: fixed;
+			left: 0;top:0;
+		}
+		.headimg{
+			padding: 20px 0 0;text-align: center;
+			margin-bottom: 10px
+		}
+		.sign{padding: 10px 0; color: #fff;font-weight: bold;}
+		.email{color: #fff;}
+		.headimg img{
+			height: 160px;
+			width: 160px;
+			border-radius: 50%;
+			box-shadow: 1px 2px 3px 2px #fafafa;
+			margin: 0 auto;
+		}
+		.ui-nav ul li{
+			height: 50px;line-height: 50px;font-size:16px;letter-spacing: 2px;color: #fff;
+			color: #fff;border-bottom: 1px solid #e2e2e2;
+			text-align: center;
+		}
+		.ui-nav ul li a{display: block;}
+		.ui-nav ul li a:hover{background:#c2c2c2; }
+		.ui-container{padding: -10px 0;margin-left:310px;overflow: hidden;height:100%;border:1px solid #ccc;}
+		.content{
+			/*margin:-5px 0 0 -5px;*/
+		}
+	</style>
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+</head>
+<body>
+	<div class="main">
+		<div class="topnav" style="display: none">
+			
+		</div>
+		<div class="cont">
+			<div class="ui-nav">
+				<div class="headimg">
+					<img src="https://imgsa.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=200e797cf5246b606f03ba268a917129/838ba61ea8d3fd1fdf338515334e251f95ca5fe2.jpg" alt="头像" >
+					<div class="sign">签名：北极星</div>
+					<div class="email">815994945@qq.com</div>
+				</div>
+				<ul class="navlist">
+					<li><a href="http://www.sogou.com" target="iframe_src">webApp</a></li>
+					<li><a href="http://www.baidu.com" target="iframe_src">Jquery</a></li>
+					<li><a href="#" target="iframe_src">Vue</a></li>
+					<li><a href="#" target="iframe_src">AngularJS</a></li>
+					<li><a href="#" target="iframe_src">HTML5</a></li>
+					<li><a href="#" target="iframe_src">CSS3动画</a></li>
+				</ul>
+			</div>
+			<div class="ui-container">
+				<div class="content">
+					<iframe src="http://www.runoob.com" name="iframe_src" frameborder="0" width="100%" height="100%" >
+					  <p>您的浏览器不支持  iframe 标签。</p>
+					</iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			var nav_height = $(".ui-nav").height();
+			$(".content").height(nav_height);
+			
+		});
+	</script>
+</body>
+</html>
