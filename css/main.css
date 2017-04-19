@@ -1,0 +1,50 @@
+*{padding: 0;margin:0;}
+		html,body{font-size: 14px;color: #333;background: #fafafa;overflow: hidden;}
+		ul,li,ol,li{list-style: none;}
+		a{text-decoration: none;cursor: pointer;color: #333;}
+		.topnav{width: 100%;height: 100px;box-shadow: 0px 2px 2px #d2d2d2;
+			border-bottom: 1px solid rgba(0,0,0,.2);}
+		.ui-nav{
+			float: left;
+			width: 280px;
+			height: 100%;
+			background: rgba(210, 195, 195, 0.91);
+			box-shadow: 2px 0px 2px #afafaf;
+			position: fixed;
+			left: 0;top:0;
+		}
+		.headimg{
+			padding: 20px 0 0;text-align: center;
+			margin-bottom: 10px
+		}
+		.sign{padding: 10px 0; color: #fff;font-weight: bold;}
+		.email{color: #fff;}
+		.headimg img{
+			height: 160px;
+			width: 160px;
+			border-radius: 50%;
+			box-shadow: 1px 2px 3px 2px #fafafa;
+			margin: 0 auto;
+		}
+		.ui-nav ul li{
+			height: 50px;line-height: 50px;font-size:16px;letter-spacing: 2px;color: #fff;
+			color: #fff;border-bottom: 1px solid #e2e2e2;
+			text-align: center;
+		}
+		.ui-nav ul li a{display: block;}
+		.ui-nav ul li a:hover{background:#c2c2c2; }
+		.ui-container{padding: -10px 0;margin-left:280px;overflow: hidden;height:100%;border:1px solid #ccc;}
+		.content{
+			/*margin:-5px 0 0 -5px;*/
+		}
+		.ui-music{
+			position: fixed;
+			top:100px;
+			right: 50px;
+			width: 200px;
+			height: 200px;
+			border-radius: 5px;
+			background: #fafafa;
+			border:1px solid rgba(0,0,0,.5);
+			cursor: move;
+		}
