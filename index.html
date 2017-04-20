@@ -28,7 +28,7 @@
 					<li><a href="./view/home.html" target="iframe_src">AngularJS</a></li>
 					<li><a href="./view/home.html" target="iframe_src">HTML5</a></li>
 					<li><a href="./view/home.html" target="iframe_src">CSS3动画</a></li>
-					<li><a href="./view/home.html" target="iframe_src"></a></li>
+					
 				</ul>
 			</div>
 			<div class="ui-container">
@@ -74,9 +74,8 @@
 			$(".ui-music").drag();
 		});
 		
-		window.onload = function(){
-			var playbox = document.getElementById('box'),
-			    bgsound = document.getElementById('bgsound'),
+		window.onload = function(){ 
+		       var  bgsound = document.getElementById('bgsound'),
 			    bgimg = document.getElementById('bgimg'),
 			    playbtn = document.getElementById('playbtn'),
 			    music_time = document.getElementById('music_time'),
@@ -118,7 +117,7 @@
 					playbtn.innerHTML= Math.floor(speed)+"%";
 				}
 				if(speed>10 && speed<100){
-					playbtn.style.textIndent = "-4px";
+					playbtn.style.textIndent = "-3px";
 				}else if(speed>100){
 					playbtn.innerHTML= "P";
 				}else{
@@ -126,14 +125,14 @@
 				}
 			});
 			bgsound.addEventListener("ended",function(){
-				playbox.getElementsByTagName('button')[0].innerHTML="P";
+				playbtn.innerHTML="P";
 				bgimg.style.animationIterationCount = 0;
 				speed = 0;
 				drawFrame();
 				console.log("播放完成了");
 				num = 0;
 			});
-			playbtn.onclick=function(){
+			playbtn.onclick=function(e){
 				console.log("开始播放");
 				music_title.innerHTML = "cut in love";
             			music_source.innerHTML = bgsound.currentSrc;
@@ -150,6 +149,7 @@
 					window.cancelAnimationFrame(myreq);
 					num = 0;
 				}
+				e.stopPropagation(); 
 			}
 			whiteCircle();
 			
