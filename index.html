@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div class="ui-music">
-				<audio id="bgsound" style="display: none;" autoplay preload="auto" src="./music/cut in love.mp3" >您的浏览器不支持音频</audio>
+				<audio id="bgsound" style="display: none;" autoplay loop preload="auto" src="./music/cut in love.mp3" >您的浏览器不支持音频</audio>
 				<div class="box" id="box">
 					<canvas id="canvas" width="130" height="130" style="background:#0cc;"></canvas>
 					<img id="bgimg" src="https://ss0.baidu.com/73F1bjeh1BF3odCf/it/u=1748544138,228300310&fm=85&s=3BBC268E5A5645C87C3EBA7A0300B07A" alt="img">
@@ -87,7 +87,6 @@
             	            centerY = canvas.height/2,  //Canvas中心点y轴坐标
             	            rad = Math.PI*2/100, //将360度分成100份，那么每一份就是rad度
             	            speed = 0, //加载的快慢就靠它了 
-            	            num=0,//播放按钮点击次数
 			    myreq;	//动画回调id
 
 			var nowmin = Math.round(bgsound.currentTime/60);
@@ -104,7 +103,6 @@
             			bgimg.style.animationIterationCount="infinite";
 				drawFrame();
             			bgsound.loop = true;
-            			num = 1;	//赋值为1
             		});
 
 			bgsound.addEventListener("timeupdate",function(){
@@ -130,14 +128,12 @@
 				speed = 0;
 				drawFrame();
 				console.log("播放完成了");
-				num = 0;
 			});
 			playbtn.onclick=function(e){
 				console.log("开始播放");
-				music_title.innerHTML = "cut in love";
-            			music_source.innerHTML = bgsound.currentSrc;
-				num++;
-				if(num%2 == 1){
+				//music_title.innerHTML = "cut in love";
+            			//music_source.innerHTML = bgsound.currentSrc;
+				if(bgsound.paused){
 					bgsound.play();
 					bgimg.style.animationIterationCount="infinite";
 					drawFrame();
@@ -147,7 +143,7 @@
 					// bgimg.style.animationPlayState="paused";
 					bgimg.style.animationIterationCount = 0;
 					window.cancelAnimationFrame(myreq);
-					num = 0;
+					
 				}
 				e.stopPropagation(); 
 			}
