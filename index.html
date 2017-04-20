@@ -111,6 +111,7 @@
 				var nowmin = Math.round(bgsound.currentTime/60);
 				var nowss = Math.round(bgsound.currentTime%60);
 				music_time.innerHTML = nowmin+":"+nowss+"/"+allmin+":"+allss;
+				drawFrame();
 				if(speed>0){
 					playbtn.innerHTML= Math.floor(speed)+"%";
 				}
