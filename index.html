@@ -108,8 +108,10 @@
 			bgsound.addEventListener("timeupdate",function(){
 				// speed = Math.round((bgsound.currentTime/bgsound.duration)*10000)/100;
 				speed = Math.floor((bgsound.currentTime/bgsound.duration)*10000)/100;
-				var nowmin = Math.round(bgsound.currentTime/60);
-				var nowss = Math.round(bgsound.currentTime%60);
+				nowmin = Math.round(bgsound.currentTime/60);
+				nowss = Math.round(bgsound.currentTime%60);
+				allmin = Math.round(bgsound.duration/60);
+				allss = Math.round(bgsound.duration%60);
 				music_time.innerHTML = nowmin+":"+nowss+"/"+allmin+":"+allss;
 				drawFrame();
 				if(speed>0){
