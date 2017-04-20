@@ -1,50 +1,65 @@
 *{padding: 0;margin:0;}
-		html,body{font-size: 14px;color: #333;background: #fafafa;overflow: hidden;}
-		ul,li,ol,li{list-style: none;}
-		a{text-decoration: none;cursor: pointer;color: #333;}
-		.topnav{width: 100%;height: 100px;box-shadow: 0px 2px 2px #d2d2d2;
-			border-bottom: 1px solid rgba(0,0,0,.2);}
-		.ui-nav{
-			float: left;
-			width: 280px;
-			height: 100%;
-			background: rgba(210, 195, 195, 0.91);
-			box-shadow: 2px 0px 2px #afafaf;
-			position: fixed;
-			left: 0;top:0;
+html,body{font-size: 14px;color: #333;background: #fafafa;overflow: hidden;}
+ul,li,ol,li{list-style: none;}
+a{text-decoration: none;cursor: pointer;color: #333;}
+.topnav{width: 100%;height: 100px;box-shadow: 0px 2px 2px #d2d2d2;border-bottom: 1px solid rgba(0,0,0,.2);}
+.ui-nav{float: left;width: 280px;height: 100%;background: rgba(210, 195, 195, 0.91);box-shadow: 2px 0px 2px #afafaf;position: fixed;left: 0;top:0;}
+.headimg{padding: 20px 0 0;text-align: center;margin-bottom: 10px}
+.sign{padding: 10px 0; color: #fff;font-weight: bold;}
+.email{color: #fff;}
+.headimg img{height: 160px;width: 160px;border-radius: 50%;box-shadow: 1px 2px 3px 2px #fafafa;margin: 0 auto;}
+.ui-nav ul li{height: 46px;line-height: 46px;font-size:16px;letter-spacing: 2px;color: #fff;color: #fff;border-bottom: 1px solid #e2e2e2;text-align: center;}
+.ui-nav ul li a{display: block;}
+.ui-nav ul li a:hover{background:#c2c2c2; }
+.ui-container{padding: -10px 0;margin-left:280px;overflow: hidden;height:100%;border:1px solid #ccc;}
+.content{/*margin:-5px 0 0 -5px;*/}
+
+/*******音乐区********/
+.ui-music{position: fixed;top:100px;right: 50px;width: 130px;height: 200px;border-radius: 5px;background: #fafafa;
+	border:1px solid rgba(0,0,0,.5);cursor: move;}
+.ui-music .box{width: 130px;height: 130px;border-radius: 50%;overflow:hidden;position: relative;}
+.ui-music .box img{width:118px;height:118px;position: absolute;top:6px;left: 6px;border:none;border-radius: 50%;animation:myfirst 5s;
+		-moz-animation:myfirst 5s; /* Firefox */-webkit-animation:myfirst 5s; /* Safari and Chrome */-o-animation:myfirst 5s; /* Opera */
+		animation-iteration-count: 0;animation-timing-function:linear;-webkit-animation-timing-function:linear; /* Safari and Chrome */
 		}
-		.headimg{
-			padding: 20px 0 0;text-align: center;
-			margin-bottom: 10px
-		}
-		.sign{padding: 10px 0; color: #fff;font-weight: bold;}
-		.email{color: #fff;}
-		.headimg img{
-			height: 160px;
-			width: 160px;
-			border-radius: 50%;
-			box-shadow: 1px 2px 3px 2px #fafafa;
-			margin: 0 auto;
-		}
-		.ui-nav ul li{
-			height: 50px;line-height: 50px;font-size:16px;letter-spacing: 2px;color: #fff;
-			color: #fff;border-bottom: 1px solid #e2e2e2;
-			text-align: center;
-		}
-		.ui-nav ul li a{display: block;}
-		.ui-nav ul li a:hover{background:#c2c2c2; }
-		.ui-container{padding: -10px 0;margin-left:280px;overflow: hidden;height:100%;border:1px solid #ccc;}
-		.content{
-			/*margin:-5px 0 0 -5px;*/
-		}
-		.ui-music{
-			position: fixed;
-			top:100px;
-			right: 50px;
-			width: 200px;
-			height: 200px;
-			border-radius: 5px;
-			background: #fafafa;
-			border:1px solid rgba(0,0,0,.5);
-			cursor: move;
-		}
+.ui-music .btn{width: 30px;height: 30px;border-radius: 50%;line-height: 30px;font-size: 12px;text-align: center;background: #fff;position: absolute;left: 50%;top:50%;
+		margin-top: -15px;margin-left: -15px;background:blue;border: 1px solid blue;box-shadow: 2px 0px 1px 1px rgba(255,255,255,0.5), -2px 0px 2px 2px rgba(255,255,255,0.5), 0 -2px 2px 2px rgba(255,255,255,0.5), 0 2px 2px 2px rgba(255,255,255,0.5);color: #fff;cursor: pointer;
+	      }
+.ui-music .music-info{min-height: 50px;padding:5px 0px;}
+.ui-music .music-info ul li{padding:2px 0 2px 10px;font-size: 12px;color: #333;
+		display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+	      }
+@keyframes myfirst
+{
+	0%   {transform:rotate(0deg);}
+	25%  {transform:rotate(90deg);}
+	50%  {transform:rotate(180deg);}
+	75%  {transform:rotate(270deg);}
+	100% {transform:rotate(360deg);}
+}
+@-moz-keyframes myfirst /* Firefox */
+{
+	0%   {transform:rotate(0deg);}
+	25%  {transform:rotate(90deg);}
+	50%  {transform:rotate(180deg);}
+	75%  {transform:rotate(270deg);}
+	100% {transform:rotate(360deg);}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+	0%   {transform:rotate(0deg);}
+	25%  {transform:rotate(90deg);}
+	50%  {transform:rotate(180deg);}
+	75%  {transform:rotate(270deg);}
+	100% {transform:rotate(360deg);}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+	0%   {transform:rotate(0deg);}
+	25%  {transform:rotate(90deg);}
+	50%  {transform:rotate(180deg);}
+	75%  {transform:rotate(270deg);}
+	100% {transform:rotate(360deg);}
+}
