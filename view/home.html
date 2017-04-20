@@ -2,9 +2,153 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>主页-资料库</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="gotoTop.js"></script>
+	<style type="text/css">
+		/**{margin:0;padding: 0;}
+		html,body{color: #333;font-size: 14px;}*/
+		a{color: #666;}
+		ul,li,ol{list-style: none;}
+		.main{width: 1000px;margin:0 auto;}
+		.header{padding: 30px 0;height: 100px;}
+		.header h1{   color: #9c33c5;font-weight: 600;letter-spacing: 26px;text-align: center;
+					font-size: 50px;text-shadow: 4px 2px 2px rgba(78, 49, 75, 0.4);opacity: 0.8;
+				}
+		.header h1#shadow{ color: #9c33c5;font-weight: 600;letter-spacing: 26px;text-align: center;
+					font-size: 50px;
+					opacity: 0.4;
+				    transform: rotateX(110deg) skew(0deg,0deg);
+					transform-origin:0px 22px;
+					-ms-transform: rotateX(-110deg) skew(0deg,0deg);/* IE 9 */
+					-ms-transform-origin:0 ; /* IE 9 */
+					-webkit-transform: rotateX(-110deg) skew(0deg,0deg); /* Safari and Chrome */
+					-webkit-transform-origin:0px 22px; /* Safari and Chrome */
+					-moz-transform: rotateX(-110deg) skew(0deg,0deg); /* Firefox */
+					-moz-transform-origin:0px 22px; /* Firefox */
+					-o-transform: rotateX(-110deg) skew(0deg,0deg);; /* Opera */
+					-o-transform-origin:0px 22px; /* Opera */	
+				}		
+		.section{
+			border-radius: 3px;
+			margin:10px 0;
+			border:1px solid rgba(0,0,0,0.3);
+			padding: 10px 20px;box-shadow: 3px 3px 3px #d2d2d2;
+		}
+		.title{
+			color: rgba(102, 102, 102, 0.78);
+			font-size: 16px;
+			font-weight: 600;
+			letter-spacing: 5px;
+			padding: 10px 0;
+			margin-bottom: 10px;
+			border-bottom: 1px solid rgba(214, 205, 205, 0.5);
+			box-shadow: 1px 1px 1px #e2e2e2;
+		}
+		.title span{letter-spacing: 1px;color:rgba(255, 0, 0, 0.94);font-size: 14px;vertical-align: top;}
+		.content {border: 1px solid #e6e6e6;border-radius: 3px; padding: 15px 10px;}
+		.content ul li{ float: left; margin:5px 10px; }
+		.content ul li a{display: block;text-decoration:none;padding: 10px 15px;border:1px solid #ccc;border-radius: 3px;opacity: 0.8;}
+		.content ul li a:hover{border-color:#117b13;opacity: 1;color:#333;}
+		.cl{clear: both;line-height: 0;visibility: hidden;height: 0;}
+		.footer{ height: 100px;content: ''; }
+	</style>
 </head>
 <body>
-	home lalal 
+	<div class="main">
+		<div class="header">
+			<h1>资料库</h1>
+			<h1 id="shadow">资料库</h1>
+		</div>
+		<div class="box-content">
+			<div class="nav-doc-link section">
+				<div class="doc-title title">资料文档篇<span>(最新热)</span></div>
+				<div class="doc-cont content">
+					<ul>
+						<li><a href="http://nodejs.cn/" target="_blank">Node.js中文网</a></li>
+						<li><a href="http://doc.vue-js.com/" target="_blank">Vue.js</a></li>
+						<li><a href="http://www.angularjs.net.cn/" target="_blank">AngularJS中文网</a></li>
+						<li><a href="http://reactnative.cn/" target="_blank">React Native 中文网</a></li>
+						<li><a href="http://www.bootcss.com/" target="_blank">Bootstrap</a></li>
+						<li><a href="http://www.w3cplus.com/sassguide/" target="_blank">SASS</a></li>
+						<li><a href="http://www.requirejs.cn/" target="_blank">Requirejs</a></li>
+						<li><a href="http://www.mrfront.com/docs/velocity.js/" target="_blank">velocity.js动画</a></li>
+						<li><a href="https://daneden.github.io/animate.css/" target="_blank">animate.css</a></li>
+						<li><a href="http://ejs.co/" target="_blank">EJS使用</a></li>
+						<li><a href="http://www.bootcss.com/" target="_blank">Bootstrap</a></li>
+					</ul>
+					<div class="cl"></div>
+				</div>
+			</div>
+			<div class="nav-pack-link section">
+				<div class="pack-title title">打包测试工具</div>
+				<div class="pack-cont content">
+					<ul>
+						<li>
+							<a href="http://www.css88.com/doc/webpack2/guides/development/" target="_blank">webpack2</a>
+						</li>
+						<li>
+							<a href="http://www.browsersync.cn/" target="_blank">Browsersync</a>
+						</li>
+						<li><a href="https://gruntjs.com/" target="_blank">gruntjs</a></li>
+						<li><a href="http://www.gulpjs.com.cn/" target="_blank">Gulp 中文网</a></li>
+						<li>
+							<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API" target="_blank">WebGL_API</a>
+						</li>
+					</ul>
+					<div class="cl"></div>
+				</div>
+			</div>				
+			<div class="nav-datum-link section">
+				<div class="datum-titl title">资料(api)查询</div>
+				<div class="datum-cont content">
+					<ul>
+						<li><a href="https://developer.mozilla.org/zh-CN/docs/Zones" target="_blank">MDN文档</a></li>
+						<li><a href="http://www.runoob.com/" target="_blank">w3c菜鸟入口</a></li>
+						<li><a href="http://www.runoob.com/manual/jquery/" target="_blank">jQuery API 手册</a></li>
+						<li><a href="http://www.css88.com/book/css/quicksearch.htm" target="_blank">CSS参考手册</a></li>
+						<li><a href="https://hexo.io/" target="_blank">hexo主页</a></li>
+						<li><a href="http://www.imooc.com/" target="_blank">慕课网</a></li>
+					</ul>
+					<div class="cl"></div>
+				</div>
+			</div>
+			<div class="nav-community-link section">
+				<div class="community-title title">社区</div>
+				<div class="community-cont content">
+					<ul>
+						<li><a href="https://juejin.im/timeline" target="_blank">掘金高质量技术社区</a></li>
+						<li><a href="https://www.zhihu.com/" target="_blank">知乎</a></li>
+						<li><a href="http://www.jianshu.com/" target="_blank">简书网</a></li>
+						<li><a href="https://www.talkingcoder.com/" target="_blank">TalkingCoder</a></li>						
+					</ul>
+					<div class="cl"></div>
+				</div>
+			</div>	
+			<div class="nav-developtool-link section">
+				<div class="develop-title title">常用开发工具</div>
+				<div class="developtool-cont content">
+					<ul>
+						<li><a href="http://www.sublimetext.com/3" target="_blank">Sublime Text 3</a></li>
+						<li><a href="http://www.appcan.cn/" target="_blank">AppCan</a></li>
+						<li>
+							<a href="http://www.jetbrains.com/webstorm/download/#section=windows" target="_blank">WebStorm</a>
+						</li>
+						<li><a href="http://www.dcloud.io/" target="_blank">HBuilder</a></li>
+						<li><a href="#" target="_blank">Dreamweaver</a></li>
+					</ul>
+					<div class="cl"></div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="footer"></div>
+	</div>					
+	<script type="text/javascript">
+		$(function(){
+			window.gotoTop();
+		});
+	</script>
 </body>
 </html>
