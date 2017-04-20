@@ -15,8 +15,8 @@ a{text-decoration: none;cursor: pointer;color: #333;}
 .content{/*margin:-5px 0 0 -5px;*/}
 
 /*******音乐区********/
-.ui-music{position: fixed;top:100px;right: 50px;width: 130px;height: 200px;border-radius: 5px;background: #fafafa;
-	border:1px solid rgba(0,0,0,.5);cursor: move;}
+.ui-music{position: fixed;top:100px;right: 50px;width: 130px;height: 200px;border-radius: 5px;padding:10px;background: rgba(179, 117, 168, 0.38);
+	border:1px solid #ead2d2;cursor: move;box-shadow: 2px 2px 4px 1px rgba(167, 163, 163, 0.9);}
 .ui-music .box{width: 130px;height: 130px;border-radius: 50%;overflow:hidden;position: relative;}
 .ui-music .box img{width:118px;height:118px;position: absolute;top:6px;left: 6px;border:none;border-radius: 50%;animation:myfirst 5s;
 		-moz-animation:myfirst 5s; /* Firefox */-webkit-animation:myfirst 5s; /* Safari and Chrome */-o-animation:myfirst 5s; /* Opera */
