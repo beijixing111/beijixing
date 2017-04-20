@@ -39,8 +39,18 @@
 				</div>
 			</div>
 			<div class="ui-music">
-				<div class="music">
-					
+				<audio id="bgsound" style="display: none;" preload="auto" src="./music/cut in love.mp3" >您的浏览器不支持音频</audio>
+				<div class="box" id="box">
+					<canvas id="canvas" width="130" height="130" style="background:#0cc;"></canvas>
+					<img id="bgimg" src="https://ss0.baidu.com/73F1bjeh1BF3odCf/it/u=1748544138,228300310&fm=85&s=3BBC268E5A5645C87C3EBA7A0300B07A" alt="img">
+					<button id="playbtn" class="btn" type="button">P</button>
+				</div>
+				<div class="music-info">
+					<ul>
+						<li>时长：<span id="music_time"></span></li>
+						<li>曲名：<span id="music_title"></span></li>
+						<li>来源：<span id="music_source"></span></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -61,9 +71,139 @@
 			})
 			
 			//移动音乐区div事件
-			$(".ui-music").music.drag();
-			
+			$(".ui-music").drag();
 		});
+		
+		window.onload = function(){
+			var playbox = document.getElementById('box'),
+			    bgsound = document.getElementById('bgsound'),
+			    bgimg = document.getElementById('bgimg'),
+			    playbtn = document.getElementById('playbtn'),
+			    music_time = document.getElementById('music_time'),
+			    music_title = document.getElementById('music_title'),
+			    music_source = document.getElementById('music_source'),
+			    canvas = document.getElementById('canvas'),  //获取canvas元素
+            	            context = canvas.getContext('2d'),  //获取画图环境，指明为2d
+            	            centerX = canvas.width/2,   //Canvas中心点x轴坐标
+            	            centerY = canvas.height/2,  //Canvas中心点y轴坐标
+            	            rad = Math.PI*2/100, //将360度分成100份，那么每一份就是rad度
+            	            speed = 0, //加载的快慢就靠它了 
+            	            num=0,//播放按钮点击次数
+			    myreq;	//动画回调id
+
+			var nowmin = Math.round(bgsound.currentTime/60);
+			var nowss = Math.round(bgsound.currentTime%60);
+			var allmin = Math.round(bgsound.duration/60);
+			var allss = Math.round(bgsound.duration%60);
+			music_time.innerHTML = nowmin+":"+nowss+"/"+allmin+":"+allss;
+                        music_title.innerHTML = "cut in love";
+                        music_source.innerHTML = bgsound.currentSrc; 	
+
+                        bgsound.addEventListener("canplaythrough",function(){
+            	        	console.log("123456");
+            			bgsound.play();
+            			bgimg.style.animationIterationCount="infinite";
+				drawFrame();
+            			bgsound.loop = true;
+            			num = 1;	//赋值为1
+            		});
+
+			bgsound.addEventListener("timeupdate",function(){
+				// speed = Math.round((bgsound.currentTime/bgsound.duration)*10000)/100;
+				speed = Math.floor((bgsound.currentTime/bgsound.duration)*10000)/100;
+				var nowmin = Math.round(bgsound.currentTime/60);
+				var nowss = Math.round(bgsound.currentTime%60);
+				music_time.innerHTML = nowmin+":"+nowss+"/"+allmin+":"+allss;
+				if(speed>0){
+					playbtn.innerHTML= Math.floor(speed)+"%";
+				}
+				if(speed>10 && speed<100){
+					playbtn.style.textIndent = "-4px";
+				}else if(speed>100){
+					playbtn.innerHTML= "P";
+				}else{
+					playbtn.style.textIndent = "0px";
+				}
+			});
+			bgsound.addEventListener("ended",function(){
+				playbox.getElementsByTagName('button')[0].innerHTML="P";
+				bgimg.style.animationIterationCount = 0;
+				speed = 0;
+				drawFrame();
+				console.log("播放完成了");
+				num = 0;
+			});
+			playbtn.onclick=function(){
+				console.log("开始播放");
+				music_title.innerHTML = "cut in love";
+            			music_source.innerHTML = bgsound.currentSrc;
+				num++;
+				if(num%2 == 1){
+					bgsound.play();
+					bgimg.style.animationIterationCount="infinite";
+					drawFrame();
+				}else{
+					bgsound.pause();
+					// this.innerHTML = "P";
+					// bgimg.style.animationPlayState="paused";
+					bgimg.style.animationIterationCount = 0;
+					window.cancelAnimationFrame(myreq);
+					num = 0;
+				}
+			}
+			whiteCircle();
+			
+			//绘制蓝色外圈
+        		function blueCircle(n){
+            			context.save();
+            			context.strokeStyle = "#3ea728"; //设置描边样式
+            			context.lineWidth = 5; //设置线宽
+            			context.beginPath(); //路径开始
+            			// console.log(-Math.PI/2 +n*rad);
+            			context.arc(centerX, centerY, 62 , -Math.PI/2, -Math.PI/2 +n*rad, false); //用于绘制圆弧context.arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
+            			context.stroke(); //绘制
+            			context.closePath(); //路径结束
+            			context.restore();
+        		}
+
+        		//绘制白色外圈
+        		function whiteCircle(){
+			    context.save();
+			    context.beginPath();
+			    context.strokeStyle = "white";
+			    context.lineWidth = 3; //设置线宽
+			    context.arc(centerX, centerY, 60 , 0, Math.PI*2, false);
+			    context.stroke();
+			    context.closePath();
+			    context.restore();
+			}  
+			//百分比文字绘制
+			// function text(n){
+			// 	// console.log(n);
+			//     context.save(); //save和restore可以保证样式属性只运用于该段canvas元素
+			//     context.strokeStyle = "#fff"; //设置描边样式
+			//     context.font = "20px Arial"; //设置字体大小和字体
+			//     //绘制字体，并且指定位置
+			//     context.strokeText(Math.floor(n)+"%", centerX-15, centerY+10);
+			//     context.stroke(); //执行绘制
+			//     context.restore();
+			// } 
+			//动画循环
+			function drawFrame(){
+			    myreq = window.requestAnimationFrame(drawFrame, canvas);
+			    context.clearRect(0, 0, canvas.width, canvas.height);
+			    whiteCircle();
+			    // text(speed);
+			    blueCircle(speed);
+			    if(speed > 100){
+				speed = 0;
+			    } 
+
+			};
+
+		}
+		
+		
 	</script>
 </body>
 </html>
