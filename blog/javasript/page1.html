@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript列表页</title>
+	<link rel="stylesheet" type="text/css" href="./../../css/reset.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="./../../js/gotoTop.js"></script>
+	<style type="text/css">
+		/**{margin:0;padding: 0;}
+		html,body{color: #333;font-size: 14px;}*/
+		a{color: #666;}
+		ul,li,ol{list-style: none;}
+		.main{width: 1000px;margin:0 auto;}
+		.header{padding: 30px 0;height: 0px;}
+		.header a:hover{color: #333;text-decoration: underline;}
+		.title{
+			color: rgba(102, 102, 102, 0.78);
+			font-size: 16px;
+			font-weight: 600;
+			letter-spacing: 5px;
+			text-align: center;
+			padding: 10px 0;
+			margin-bottom: 10px;
+			border-bottom: 1px solid rgba(214, 205, 205, 0.5);
+			/*box-shadow: 1px 1px 1px #e2e2e2;*/
+		}
+		.title span{letter-spacing: 1px;color:rgba(255, 0, 0, 0.94);font-size: 14px;vertical-align: top;}
+		.article {border: 1px solid #e6e6e6;border-radius: 3px; padding: 0px 10px;
+			position: relative;overflow: hidden;margin-bottom: 15px;}
+		.cont{padding: 0px 0px 10px;overflow: hidden;margin-bottom: 10px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: -webkit-box;
+			-webkit-line-clamp:5;	/*显示两行*/
+			-webkit-box-orient:vertical;/*超出...*/
+		}
+		.artfoot{
+			position: absolute;bottom: 0px;left:0;width:100%;height: 30px;padding: 5px 0;
+		}
+		.btn{display: inline-block;width: 60px;height: 26px;line-height: 26px;border-radius: 3px;cursor: pointer;font-size: 12px;color:#666;border:1px solid #ccc;background: #fff;text-align: center;
+			margin:2px 10px;
+		}
+		p{line-height: 28px;font-size: 14px;}
+		/*pre{height: 330px;}*/
+		.cl:after{clear: both;display:block;content:'';line-height: 0;visibility: hidden;height: 0;}
+		.footer{ height: 100px;content: ''; }
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="header">
+			<a href="list.html">返回javascript文章页</a>
+		</div>
+		<div class="box-content">
+			<div class="article">
+				<h3 class="title">关于js去重的方法有哪些?</h3>
+				<div class="cont">
+					<p>为 Array 对象上添加一个去除重复项的方法</p>
+					<p>输入例子,<br/>
+					[false, true, undefined, null, NaN, 0, 1, {}, {}, 'x', 'x', NaN].uniq()<br/>
+					输出例子<br/>[false, true, undefined, null, NaN, 0, 1, {}, 'x']</p>
+					<p>为Array 添加方法，我们需要用到 prototype。</p>
+					<p>在 JavaScript 中很多人会忽视 NaN 的存在，因为在 JS 中 NaN !== NaN 。<br/>但是在去重中我们又不能保留两个 NaN ，所以需要进行一下判断，这是很多人容易忽视的。</p>
+					<p>ES5的实现如下：代码</p>
+					<div class="cl">
+						<pre style="height: 330px;">
+							<code>							
+Array.prototype.uniq = function () {
+	var arr = [];
+	var flag = true;
+	this.forEach(function(item) {
+		// 排除 NaN (重要！！！)
+		if (item != item) {
+			flag && arr.indexOf(item) === -1 ? arr.push(item) : '';
+			flag = false;
+		}else {
+			arr.indexOf(item) === -1 ? arr.push(item) : ''
+		}
+	});
+	return arr;
+}
+							</code>
+						</pre>
+					</div>
+					
+					<p>验证<br />
+
+					我们只需要在数组上直接调用 uniq 方法就可以了，如：<br />
+
+					[false, true, undefined, null, NaN, 0, 1, {}, {}, 'x', 'x', NaN].uniq()<br />
+					结果为：<br />
+
+					[false, true, undefined, null, NaN, 0, 1, {}, 'x']<br />
+					</p>
+					<p>ES6的实现	<br /></p>
+
+<p>ES6新增了 Set 对象，也就是我们所说的“集合”，它类似于数组，但是成员的值都是唯一的，没有重复的值。所以可以方便去重。</p>
+<p>Set本身是一个构造函数，用来生成Set数据结构。(详看??Set和Map数据结构)</p>
+
+<p>如果用ES6为 Array 对象添加一个去除重复项的方法，则可以如下实现：</p>
+<div>
+	<pre style="height:100px;">
+		<code>
+Array.prototype.uniq = function() {
+	return Array.from(new Set(this));
+}
+		</code>
+	</pre>
+</div>
+
+<p>
+	代码中用 Array.from 把 Set 结构转换成数组，当然，你也可以用其他方法，这里不深究。这里去重关键代码只需要一行，是不是非常简单？??
+</p>
+<p>
+	如果你要优雅一点，可以使用 ES6 的扩展运算符。如下：
+</p>
+<div>
+	<pre style="height:100px;">
+		<code>
+Array.prototype.uniq = function() {
+	return [...new Set(this)];
+}
+
+		</code>
+	</pre>
+</div>
+
+
+					
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="footer"></div>
+	</div>					
+	<script type="text/javascript">
+		$(function(){
+			window.gotoTop();
+		});
+	</script>
+</body>
+</html>
