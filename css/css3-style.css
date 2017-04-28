@@ -19,16 +19,16 @@ div{color: #fff;text-align: center;}
 	letter-spacing: 3px;
 	padding: 20px 0;
 	text-align: center;
-	-webkit-animation:myshake 5s ease-in-out infinite; 
-	-moz-animation:myshake 5s ease-in-out infinite; 
-	-ms-animation:myshake 5s ease-in-out infinite; 
-	-o-animation:myshake 5s ease-in-out infinite; 
-	animation: myshake 5s ease-in-out infinite;
+	-webkit-animation:myshake 5s ease-in-out infinite alternate; 
+	-moz-animation:myshake 5s ease-in-out infinite alternate; 
+	-ms-animation:myshake 5s ease-in-out infinite alternate; 
+	-o-animation:myshake 5s ease-in-out infinite alternate; 
+	animation: myshake 5s ease-in-out infinite alternate;
 	
 }
 @-webkit-keyframes myshake{
-	0%{ transform: rotate(-15deg); }
-	20%{transform: rotate(20deg); }
+	0%{ transform: rotate(-5deg); }
+	20%{transform: rotate(10deg); }
 	40%{ transform: rotate(-10deg); }
 	60%{transform: rotate(15deg);}
 	80%{transform: rotate(-5deg);}
@@ -36,8 +36,8 @@ div{color: #fff;text-align: center;}
 	100%{ transform: rotate(0deg); }
 }
 @-moz-keyframes myshake{
-	0%{ transform: rotate(-15deg); }
-	20%{transform: rotate(20deg); }
+	0%{ transform: rotate(-5deg); }
+	20%{transform: rotate(10deg); }
 	40%{ transform: rotate(-10deg); }
 	60%{transform: rotate(15deg);}
 	80%{transform: rotate(-5deg);}
@@ -45,8 +45,8 @@ div{color: #fff;text-align: center;}
 	100%{ transform: rotate(0deg); }
 }
 @-ms-keyframes myshake{
-	0%{ transform: rotate(-15deg); }
-	20%{transform: rotate(20deg); }
+	0%{ transform: rotate(-5deg); }
+	20%{transform: rotate(10deg); }
 	40%{ transform: rotate(-10deg); }
 	60%{transform: rotate(15deg);}
 	80%{transform: rotate(-5deg);}
@@ -54,8 +54,8 @@ div{color: #fff;text-align: center;}
 	100%{ transform: rotate(0deg); }
 }
 @-o-keyframes myshake{
-	0%{ transform: rotate(-15deg); }
-	20%{transform: rotate(20deg); }
+	0%{ transform: rotate(-5deg); }
+	20%{transform: rotate(10deg); }
 	40%{ transform: rotate(-10deg); }
 	60%{transform: rotate(15deg);}
 	80%{transform: rotate(-5deg);}
@@ -63,15 +63,14 @@ div{color: #fff;text-align: center;}
 	100%{ transform: rotate(0deg); }
 }
 @keyframes myshake{
-	0%{ transform: rotate(-15deg); }
-	20%{transform: rotate(20deg); }
+	0%{ transform: rotate(-5deg); }
+	20%{transform: rotate(10deg); }
 	40%{ transform: rotate(-10deg); }
 	60%{transform: rotate(15deg);}
 	80%{transform: rotate(-5deg);}
 	90%{transform: rotate(5deg);}
 	100%{ transform: rotate(0deg); }
 }
-
 
 .box1 {
 	width: 150px;
